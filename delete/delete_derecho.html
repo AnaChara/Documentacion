@@ -1,0 +1,37 @@
+<h3>DELETE /task/:id</h3>
+<h4>Request samples</h4>
+<div class="buttons">
+    <button class="code-button">Node.js</button>
+</div>
+<div id="request" class="request-sample">
+    <pre id="requestCode" class="language-javascript">
+const Facturapi = require('facturapi');
+const facturapi = new Facturapi('sk_test_API_KEY');
+const customer = await facturapi.customers.create({
+legal_name: 'Dunder Mifflin',
+email: 'email@example.com',
+tax_id: 'ABC101010111',
+tax_system: '601',
+address: {
+    zip: '01234'
+}
+});
+</pre>
+</div>
+<h4>Response samples</h4>
+<div class="buttons">
+    <button class="code-button code-200" onclick="showResponse(200, this)">200</button>
+    <button class="code-button code-201" onclick="showResponse(201, this)">201</button>
+    <button class="code-button code-400" onclick="showResponse(400, this)">400</button>
+    <button class="code-button code-401" onclick="showResponse(401, this)">401</button>
+    <button class="code-button code-404" onclick="showResponse(404, this)">404</button>
+    <button class="code-button code-500" onclick="showResponse(500, this)">500</button>
+</div>
+<div id="responseSample" class="response-sample">
+    <p><strong>Content type:</strong> application/json</p>
+    <pre id="responseCode" class="language-json">
+{
+    "message": "Sample response message"
+}
+</pre>
+</div>
