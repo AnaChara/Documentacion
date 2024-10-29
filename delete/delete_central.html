@@ -1,73 +1,35 @@
-<h2>Eliminar Tarea</h2>
-<p>Selecciona la tarea que deseas eliminar.</p>
-<p>Authorizations:</p>
-<p>Request Body schema:</p>
+<h1>Eliminar Tarea</h1>
+<p>Elimina una tarea específica de la base de datos mediante su ID de forma permanente.</p>
+<h3>Authorizations:</h3><p>No requiere autorización.</p>
+<h3>Path parameters:</h3>
+<ul><li><strong>id</strong> (en la URL): ID de la tarea a eliminar.</li></ul>
+<h3>Responses</h3>
 <div class="responses">
     <div class="response success" onclick="toggleSchema('schema200')">
         <h4>200</h4>
-        <p>Un objeto <span class="highlight">Task</span> con la misma información ya existía</p>
+        <p>Objeto <span class="highlight">Task</span> eliminado correctamente</p>
     </div>
     <div id="schema200" class="schema" style="display: none;">
         <h4>RESPONSE SCHEMA: <span>application/json</span></h4>
         <ul>
-            <li><strong>id</strong> (required): string</li>
-            <p>ID del objeto.</p>
-            <li><strong>created_at</strong> (required): string &lt;date-time&gt;</li>
-            <p>Fecha de registro.</p>
+            <li><strong>code</strong> (required): integer</li>
+            <p>Código de respuesta HTTP (200 si se elimina correctamente).</p>
+            <li><strong>message</strong> (required): string</li>
+            <p>Mensaje de confirmación.</p>
         </ul>
-    </div>
-
-    <div class="response success" onclick="toggleSchema('schema201')">
-        <h4>201</h4>
-        <p>Nuevo objeto <span class="highlight">Task</span> creado</p>
-    </div>
-    <div id="schema201" class="schema" style="display: none;">
-        <h4>RESPONSE SCHEMA: <span>application/json</span></h4>
-        <ul>
-            <li><strong>id</strong> (required): string</li>
-            <p>ID del objeto.</p>
-            <li><strong>created_at</strong> (required): string &lt;date-time&gt;</li>
-            <p>Fecha de registro.</p>
-        </ul>
-    </div>
-
-    <div class="response error" onclick="toggleSchema('schema400')">
-        <h4>400</h4>
-        <p>Error en parámetros de la petición</p>
-    </div>
-    <div id="schema400" class="schema" style="display: none;">
-        <h4>RESPONSE SCHEMA: <span>application/json</span></h4>
-        <p><strong>message</strong>: string (Descripción del error)</p>
-        <p>Indica qué salió mal y puede incluir una sugerencia sobre cómo solucionar el error.</p>
-    </div>
-
-    <div class="response auth-error" onclick="toggleSchema('schema401')">
-        <h4>401</h4>
-        <p>Error de autenticación</p>
-    </div>
-    <div id="schema401" class="schema" style="display: none;">
-        <h4>RESPONSE SCHEMA: <span>application/json</span></h4>
-        <p><strong>message</strong>: string (Descripción del error)</p>
-        <p>Indica qué salió mal y puede incluir una sugerencia sobre cómo solucionar el error.</p>
     </div>
 
     <div class="response error" onclick="toggleSchema('schema404')">
         <h4>404</h4>
-        <p>Error en parámetros de la petición</p>
+        <p>Error en la petición</p>
     </div>
     <div id="schema404" class="schema" style="display: none;">
         <h4>RESPONSE SCHEMA: <span>application/json</span></h4>
-        <p><strong>message</strong>: string (Descripción del error)</p>
-        <p>Indica qué salió mal y puede incluir una sugerencia sobre cómo solucionar el error.</p>
-    </div>
-
-    <div class="response auth-error" onclick="toggleSchema('schema500')">
-        <h4>500</h4>
-        <p>Error del servidor</p>
-    </div>
-    <div id="schema500" class="schema" style="display: none;">
-        <h4>RESPONSE SCHEMA: <span>application/json</span></h4>
-        <p><strong>message</strong>: string (Descripción del error)</p>
-        <p>Indica qué salió mal y puede incluir una sugerencia sobre cómo solucionar el error.</p>
+        <ul>
+            <li><strong>code</strong> (required): integer</li>
+            <p>Código de error HTTP (404 en caso de error).</p>
+            <li><strong>message</strong> (required): string</li>
+            <p>Mensaje descriptivo del error.</p>
+        </ul>
     </div>
 </div>

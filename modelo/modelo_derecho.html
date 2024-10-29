@@ -4,16 +4,12 @@
 </div>
 <div id="request" class="request-sample">
     <pre id="requestCode" class="language-json">
-const Facturapi = require('facturapi');
-const facturapi = new Facturapi('sk_test_API_KEY');
-const customer = await facturapi.customers.create({
-legal_name: 'Dunder Mifflin',
-email: 'email@example.com',
-tax_id: 'ABC101010111',
-tax_system: '601',
-address: {
-    zip: '01234'
+{
+    "id": "abc123",
+    "title": "Primera Tarea",
+    "description": "Descripción de la primera tarea",
+    "completed": false,
+    "createdAt": "2024-10-27T10:15:30.000Z"
 }
-});
 </pre>
 </div>

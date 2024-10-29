@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     } catch (error) {
                         console.error("Error al cargar contenido:", error);
                     }
-                    contenidoDerecho.innerHTML = "<h2>Información del Tutorial</h2><p>Detalles sobre el tutorial.</p>";
+                    // contenidoDerecho.innerHTML = "<h2>Información del Tutorial</h2><p>Detalles sobre el tutorial.</p>";
                     break;
                 case "Crear tareas (POST)":
                     try {
@@ -175,48 +175,27 @@ function toggleSchema(schemaId) {
 }
 
 const responsesPost = {
-    200: '{\n    "message": "Un objeto Customer con la misma información ya existía."\n}',
-    201: '{\n    "message": "Nuevo objeto Customer creado."\n}',
-    400: '{\n    "message": "Error en parámetros de la petición."\n}',
-    401: '{\n    "message": "Error de autenticación."\n}',
-    404: '{\n    "message": "Recurso no encontrado."\n}',
-    500: '{\n    "message": "Error interno del servidor."\n}'
+    201: '{\n    "id": "abc123",\n    "title": "Nueva Tarea",\n    "description": "Descripción de la nueva tarea",\n    "completed": false,\n    "createdAt": "2024-10-28T12:34:56.789Z"\n}',
 };
 
 const responsesGet = {
-    200: '{\n    "message": "Un objeto Customer con la misma información ya existía."\n}',
-    201: '{\n    "message": "Nuevo objeto Customer creado."\n}',
-    400: '{\n    "message": "Error en parámetros de la petición."\n}',
-    401: '{\n    "message": "Error de autenticación."\n}',
-    404: '{\n    "message": "Recurso no encontrado."\n}',
-    500: '{\n    "message": "Error interno del servidor."\n}'
+    200: '[\n    {\n        "id": "abc123",\n        "title": "Primera Tarea",\n        "description": "Descripción de la primera tarea",\n        "completed": false,\n        "createdAt": "2024-10-27T10:15:30.000Z"\n    },\n    {\n        "id": "def456",\n        "title": "Segunda Tarea",\n        "description": "Descripción de la segunda tarea",\n        "completed": true,\n        "createdAt": "2024-10-27T12:45:30.000Z"\n    }\n]',
+    404: '{\n    "code": 404,\n    "message": "No se encontraron tareas"\n}'
 };
 
 const responsesGetId = {
-    200: '{\n    "message": "Un objeto Customer con la misma información ya existía."\n}',
-    201: '{\n    "message": "Nuevo objeto Customer creado."\n}',
-    400: '{\n    "message": "Error en parámetros de la petición."\n}',
-    401: '{\n    "message": "Error de autenticación."\n}',
-    404: '{\n    "message": "Recurso no encontrado."\n}',
-    500: '{\n    "message": "Error interno del servidor."\n}'
+    200: '{\n    "id": "abc123",\n    "title": "Primera Tarea",\n    "description": "Descripción de la primera tarea",\n    "completed": false,\n    "createdAt": "2024-10-27T10:15:30.000Z"\n}',
+    404: '{\n    "code": 404,\n    "message": "No such document!"\n}'
 };
 
 const responsesPut = {
-    200: '{\n    "message": "Un objeto Customer con la misma información ya existía."\n}',
-    201: '{\n    "message": "Nuevo objeto Customer creado."\n}',
-    400: '{\n    "message": "Error en parámetros de la petición."\n}',
-    401: '{\n    "message": "Error de autenticación."\n}',
-    404: '{\n    "message": "Recurso no encontrado."\n}',
-    500: '{\n    "message": "Error interno del servidor."\n}'
+    200: '{\n    "code": 200,\n    "message": "Tarea actualizada correctamente",\n    "task": {\n        "id": "abc123",\n        "title": "Tarea actualizada",\n        "description": "Descripción actualizada de la tarea",\n        "completed": true\n    }\n}',
+    404: '{\n    "code": 404,\n    "message": "Error al actualizar la tarea: No se encontró el documento"\n}',
 };
 
 const responsesDelete = {
-    200: '{\n    "message": "Un objeto Customer con la misma información ya existía."\n}',
-    201: '{\n    "message": "Nuevo objeto Customer creado."\n}',
-    400: '{\n    "message": "Error en parámetros de la petición."\n}',
-    401: '{\n    "message": "Error de autenticación."\n}',
-    404: '{\n    "message": "Recurso no encontrado."\n}',
-    500: '{\n    "message": "Error interno del servidor."\n}'
+    200: '{\n    "code": 200,\n    "message": "Tarea eliminada correctamente"\n}',
+    404: '{\n    "code": 404,\n    "message": "Error al eliminar la tarea: No se encontró el documento"\n}',
 };
 
 function showResponse(statusCode, button, api) {
